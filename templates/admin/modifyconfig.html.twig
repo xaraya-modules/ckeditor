@@ -1,0 +1,82 @@
+{# @ckeditor/admin/modifyconfig.html.twig #}
+
+{% block modifyconfig %}
+<div class="xar-mod-head">
+        <span class="xar-mod-title">
+            {% if xar_modulevar('ckeditor', 'useModuleAlias') %}
+                {{ xar_var({scope: "module", module: "ckeditor", name: "aliasname"}) }}
+            {% else %}
+                {{ xar_translate('CKEditor Administration') }}
+            {% endif %}
+        </span>
+    </div>
+
+    {{ include('@ckeditor/includes/admintabs.html.twig') }}
+
+    <div class="xar-mod-body">
+        <h2>
+            {{ xar_translate('Modify Configuration') }}
+        </h2>
+   
+            <form method="post" action="&xar-modurl-ckeditor-admin-modifyconfig;" enctype="application/x-www-form-urlencoded">
+             
+                {#  <fieldset>
+                    <legend>
+                        {{ xar_translate('General Options') }}
+                    </legend>
+                  
+                    <div class="xar-form-input-wrapper">
+                      <label for="editorversion" class="xar-form-label">{{ xar_translate('Editor Version') }}</label>
+                        {% set options = [
+                                {'id': 'ckeditor', 'name': xar_translate('CKEditor')},
+                                {'id': 'fckeditor', 'name': xar_translate('FCKEditor')},
+                            ] %}
+                         {% set editorversion = xar_modulevar('ckeditor', 'editorversion') %}
+                        {{ xar_data_input({type: "dropdown", name: "editorversion", value: editorversion, options: options}) }}
+                    </div>
+
+		    </fieldset> #}
+
+		    <fieldset>
+		    <legend>Plugins Config</legend>
+
+<h3>PGRFileManager settings</h3>
+            {# 'imagesExtensions': '', #}
+            {% set pgrconfig = {
+				'rootPath': '',
+				'urlPath': '',
+				'allowedExtensions': 'Leave empty to allow all extensions',
+				'fileMaxSize': '',
+				'imageMaxHeight': '',
+				'imageMaxWidth': '',
+				'allowEdit': ''
+            } %}
+
+		{% for key, note in pgrconfig %}
+			{% set pgrsetting = 'PGRFileManager_'.key %}
+		    <div class="xar-form-input-wrapper">
+                      <label for="{{ pgrsetting }}" class="xar-form-label">{{ key }}</label>
+                     
+                         {% set setting = xar_modulevar('ckeditor', pgrsetting) %}
+			 {% if key == 'allowEdit' %}
+				{% set options = {'false': 'false', 'true': 'true'} %}
+				{{ xar_data_input({type: "dropdown", options: options, name: pgrsetting, value: setting}) }}
+			{% else %}
+				{{ xar_data_input({type: "textbox", name: pgrsetting, value: setting}) }} {{ note }}
+			{% endif %}
+                    </div><br />
+		{% endfor %}
+
+                </fieldset>
+                <fieldset>
+                    <div class="xar-form-input-wrapper-after">
+                        <input type="hidden" name="authid" id="authid" value="{{ authid }}"/>
+                        <input type="hidden" name="phase" id="phase" value="update"/>
+                        <input type="submit" value="{{ xar_translate('Update CKEditor Configuration') }}"/>
+                    </div>
+                </fieldset>
+            </form>
+     
+             
+    </div>
+{% endblock %}

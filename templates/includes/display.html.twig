@@ -1,0 +1,16 @@
+{# @ckeditor/includes/display.html.twig #}
+
+{% block display %}
+{% if tabmodule != 'ckeditor' %}
+        {% set regid = xar_coremethod('xarMod', 'getRegID', [tabmodule]) %}
+    {% else %}
+        {% set regid = 0 %}
+    {% endif %}
+    <div class="xar-form-input-wrapper">
+        <label for="defaultmastertable" title="{{ xar_translate('The object this module displays as default in its view function') }}" class="xar-form-label">
+            {{ xar_translate('Default Master Table:') }}
+        </label>
+        {% set value = xar_coremethod('xarModItemVars', 'get', ['ckeditor', 'defaultmastertable', regid]) %}
+        {{ xar_data_input({type: "object", name: "defaultmastertable", value: value, store_prop: "name", firstline: "Choose a master table object"}) }}
+    </div>
+{% endblock %}

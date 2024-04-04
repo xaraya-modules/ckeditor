@@ -1,0 +1,56 @@
+{# @ckeditor/admin/overview.html.twig #}
+
+{% block overview %}
+<div class="xar-mod-head">
+        <span class="xar-mod-title">
+            {% if xar_modulevar('ckeditor', 'useModuleAlias') %}
+                {{ xar_var({scope: "module", module: "ckeditor", name: "aliasname"}) }}
+            {% else %}
+                {{ xar_translate('CKEditor Administration') }}
+            {% endif %}
+        </span>
+    </div>
+
+    {{ include('@ckeditor/includes/admintabs.html.twig') }}
+
+    <div class="xar-mod-body">
+        <h2>
+            {{ xar_translate('Overview') }}
+        </h2>
+
+	<p>The CKEditor module supplies the "editor" property type for use in your objects.  To use CKEditor with a Dynamic Data object, simply add one or more "editor" properties to your object.</p> 
+
+        <p>Configuration settings for CKEditor are found in
+	<strong><a href="{{ xar_coremethod('sys', 'code') }}modules/ckeditor/xartemplates/includes/ckeditor/config.js">ckeditor/xartemplates/includes/ckeditor/config.js</a></strong>
+	</p>
+
+	<p>
+	There, you can control the style of the editor, which buttons to include in the toolbars, language, size, which plugins to load, etc.  The official CKEditor documentation includes a <a href="http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.config.html" target="new">reference for config settings</a>&#160;<img src="code/modules/ckeditor/xarimages/exit.png" width="10" height="10" alt="leave this website" />.   
+        </p>
+	<h4>PGRFileManager</h4>
+	<p>
+	The CKEditor module comes with the <a href="http://pgrfilemanager.sourceforge.net/" target="new">PGRFileManager</a>&#160;<img src="code/modules/ckeditor/xarimages/exit.png" width="10" height="10" alt="leave this website" /> plugin, which is disabled by default.  To enable the file manager, uncomment this line in CKEditor's config.js:
+	<blockquote>//CKEDITOR.plugins.load('pgrfilemanager');</blockquote>
+	</p>
+	<p>
+	Once you've enabled pgrfilemanager, you can access it in the editor by clicking on the link button or image button and then clicking on Browse Server. 
+	</p>
+	<p>
+	Options for creating and deleting directories are available in the file manager by right-clicking on directories in the directory tree.  You can also drag directories around, and can drag directories into other directories and drag files into directories.  
+	</p>
+	<p>
+	The <a href="{{ xar_moduleurl('ckeditor','admin','modifyconfig') }}">modify config page</a> has a number of settings for PGRFileManager:
+	<blockquote><strong>rootPath</strong> -- Root location for your directories and files.  Set this to a directory that exists on your server.<br />
+	<strong>urlPath</strong> -- Base URL used by the editor to link to your files.  (Must be the URL equivalent of rootPath.)<br />
+	<strong>allowedExtensions</strong> -- Comma-separated list of file extensions that are permissible to upload.<br />
+	<strong>fileMaxSize</strong> -- Maximum file size (bytes) of an upload.<br />
+	<strong>imageMaxHeight</strong> -- Maximum height for image uploads.<br />
+	<strong>imageMaxWidth</strong> -- Maximum width for image uploads.<br />
+	<strong>allowEdit</strong> -- This setting controls whether the file manager will allow new uploads and copying/moving/renaming/deleting of previously uploaded files and directories.  If set to false, you will only be able to select from previously uploaded files.</blockquote>
+	</p>
+	<p>
+	Note: Display of file thumbnails can be buggy with Windows hosting.   You may find that files will upload but their thumbs will not always display in the pane where you expect them.</p>
+
+        <div style="clear:both">&#160;</div>
+    </div>
+{% endblock %}

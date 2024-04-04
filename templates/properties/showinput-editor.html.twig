@@ -1,0 +1,15 @@
+{# @ckeditor/properties/showinput-editor.html.twig #}
+
+{% block showinput_editor %}
+{{ xar_javascript({filename: "ckeditor/ckeditor.js", module: "ckeditor", position: "head"}) }}
+
+    {% if version == 'fckeditor' %}
+        {{ editor.Create() }}
+    {% else %}
+        <div style="clear: both">
+            <textarea class="ckeditor" rows="{{ rows }}" cols="{{ cols }}" id="{{ id }}" name="{{ name }}" tabindex="{{ tabindex }}">{{ value }}</textarea>
+        </div>
+    {% endif %} 
+
+    {{ include('@base/includes/dataproperty_additions.html.twig') }}
+{% endblock %}

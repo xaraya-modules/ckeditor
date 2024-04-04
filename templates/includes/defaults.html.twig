@@ -1,0 +1,16 @@
+{# @ckeditor/includes/defaults.html.twig #}
+
+{% block defaults %}
+{% if tabmodule != 'ckeditor' %}
+        {% set regid = xar_coremethod('xarMod', 'getRegID', [tabmodule]) %}
+    {% else %}
+        {% set regid = 0 %}
+    {% endif %}
+    <div class="xar-form-input-wrapper">
+        <label for="bar" title="{{ xar_translate('An example of a module-specific configuration variable') }}" class="xar-form-label">
+            {{ xar_translate('Bar:') }}
+        </label>
+        {% set value = xar_coremethod('xarModItemVars', 'get', ['ckeditor', 'bar', regid]) %}
+        {{ xar_data_input({type: "textbox", name: "bar", value: value}) }}
+    </div>
+{% endblock %}

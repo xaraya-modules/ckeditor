@@ -1,0 +1,24 @@
+{# @ckeditor/main.html.twig #}
+
+{% extends '@ckeditor/base.html.twig' %}
+
+{% block modulespace %}
+<div class="xar-mod-head">
+        <span class="xar-mod-title">
+            {% if xar_modulevar('ckeditor', 'useModuleAlias') %}
+                {{ xar_var({scope: "module", module: "ckeditor", name: "aliasname"}) }}
+            {% else %}
+                {{ xar_translate('CKEditor') }}
+            {% endif %}
+        </span>
+    </div>
+    <div class="xar-mod-body">
+        <h2>
+            {{ xar_translate('Overview') }}
+        </h2>
+
+	<p><a href="{{ xar_moduleurl('ckeditor','admin','overview') }}">Module overview</a></p>
+     
+        <div style="clear:both">&#160;</div>
+    </div>
+{% endblock %}

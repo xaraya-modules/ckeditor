@@ -1,0 +1,25 @@
+{# @ckeditor/admin/main.html.twig #}
+
+{% block main %}
+<div class="xar-mod-head">
+        <span class="xar-mod-title">
+            {% if xar_modulevar('ckeditor', 'useModuleAlias') %}
+                {{ xar_var({scope: "module", module: "ckeditor", name: "aliasname"}) }}
+            {% else %}
+                {{ xar_translate('CKEditor Administration') }}
+            {% endif %}
+        </span>
+    </div>
+    <div class="xar-mod-body">
+        <img src="{{ xar_imageurl('admin.gif', 'ckeditor') }}" alt="official icon" width="96" height="96" class="xar-module-icon"/>
+
+        <h2>
+            {{ xar_translate('Overview') }}
+        </h2>
+
+        <p>
+            {{ xar_translate('Dummy ckeditor text') }}
+        </p>
+        <div style="clear:both">&#160;</div>
+    </div>
+{% endblock %}
