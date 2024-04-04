@@ -13,7 +13,7 @@
 
 $config['PGRFileManager.rootPath'] = '/home/mikespub/xaraya-core/html/var/uploads';
 
-$config['PGRFileManager.urlPath'] = 'https://owncloud.mikespub.net/bermuda/var/uploads';
+$config['PGRFileManager.urlPath'] = 'http://localhost/xaraya/var/uploads';
 
 $config['PGRFileManager.allowedExtensions'] = 'pdf, txt, rtf, jpg, gif, jpeg, png';  //'' means all files
 
@@ -33,11 +33,11 @@ $config['PGRFileManager.allowEdit'] = 'true';
     //print $prop;
     $pluginsConfiguration[$prop]['PGRFileManager.rootPath'] = '/home/mikespub/xaraya-core/html/var/uploads';
 
-    $pluginsConfiguration[$prop]['PGRFileManager.urlPath'] = 'https://owncloud.mikespub.net/bermuda/var/uploads';
+    $pluginsConfiguration[$prop]['PGRFileManager.urlPath'] = 'http://localhost/xaraya/var/uploads';
 
 } else {
 
     $pluginsConfiguration['default']['PGRFileManager.rootPath'] = '/home/mikespub/xaraya-core/html/var/uploads';
 
-    $pluginsConfiguration['default']['PGRFileManager.urlPath'] = 'https://owncloud.mikespub.net/bermuda/var/uploads';
+    $pluginsConfiguration['default']['PGRFileManager.urlPath'] = 'http://localhost/xaraya/var/uploads';
 }*/
