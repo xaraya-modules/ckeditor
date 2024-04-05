@@ -95,7 +95,7 @@ class PGRThumb_UrlThumb
     {
         //check pass
         if (!isset($_GET['hash']) ||
-            ($_GET['hash'] != md5(str_replace('&hash='.$_GET['hash'], '', $_SERVER['QUERY_STRING']) . PGRThumb_Config::$pass))) {
+            ($_GET['hash'] != md5(str_replace('&hash=' . $_GET['hash'], '', $_SERVER['QUERY_STRING']) . PGRThumb_Config::$pass))) {
             self::error("can't do this");
         }
 

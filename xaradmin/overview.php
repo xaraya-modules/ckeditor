@@ -11,7 +11,7 @@
  * @author Marc Lutolf <mfl@netspan.ch> and Ryan Walker <ryan@webcommunicate.net>
  */
 
-function ckeditor_admin_overview()
+function ckeditor_admin_overview(array $args = [], $context = null)
 {
     if (!xarSecurity::check('ReadCKEditor')) {
         return;

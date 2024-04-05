@@ -96,7 +96,7 @@ class PGRThumb_Cache
         if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) &&
             ($modifiedDate == strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE'])) &&
             $_SERVER['SERVER_PROTOCOL']) {
-            header($_SERVER['SERVER_PROTOCOL'].' 304 Not Modified');
+            header($_SERVER['SERVER_PROTOCOL'] . ' 304 Not Modified');
             exit(0);
         }
 
@@ -109,7 +109,7 @@ class PGRThumb_Cache
             PGRThumb_UrlThumb::error('headers already sent');
         }
 
-        header('Last-Modified: '.gmdate('D, d M Y H:i:s', @filemtime($file)).' GMT');
+        header('Last-Modified: ' . gmdate('D, d M Y H:i:s', @filemtime($file)) . ' GMT');
         //header('Location: ' . $file . '?new');
         header("Content-Type: image/jpg");
         readfile($file);

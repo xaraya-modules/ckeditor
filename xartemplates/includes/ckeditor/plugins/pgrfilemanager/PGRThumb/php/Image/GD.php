@@ -120,8 +120,8 @@ class PGRThumb_Image_GD extends PGRThumb_Image
         //Resize
         $res = imagecopyresampled($this->_processedImage, $source, 0, 0, 0, 0, $newWidth, $newHeight, $this->_width, $this->_height);
 
-        $this->_scaleX = $newWidth/$this->_width;
-        $this->_scaleY = $newHeight/$this->_height;
+        $this->_scaleX = $newWidth / $this->_width;
+        $this->_scaleY = $newHeight / $this->_height;
 
         $this->_width = $newWidth;
         $this->_height = $newHeight;
@@ -188,7 +188,7 @@ class PGRThumb_Image_GD extends PGRThumb_Image
             case 'JPEG':
                 return imagejpeg($this->_processedImage, $file, $quality);
             case 'PNG':
-                return imagepng($this->_processedImage, $file, $quality/100);
+                return imagepng($this->_processedImage, $file, $quality / 100);
             default:
                 return false;
         }
@@ -268,8 +268,8 @@ class PGRThumb_Image_GD extends PGRThumb_Image
         $textcord = imagettfbbox($size, 0, $font, $text);
         $textWidth = $textcord[4] - $textcord[6];
         $textHeight = $textcord[1] - $textcord[7];
-        $textCenterX =  round($this->_width/2 - $textWidth/2);
-        $textCenterY =  round($this->_height/2 + $textHeight/3);
+        $textCenterX =  round($this->_width / 2 - $textWidth / 2);
+        $textCenterY =  round($this->_height / 2 + $textHeight / 3);
 
         $padding = 2;
 

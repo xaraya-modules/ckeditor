@@ -85,9 +85,7 @@ class PGRThumb_Image_ImageMagick extends PGRThumb_Image
         return false;
     }
 
-    public function destroy()
-    {
-    }
+    public function destroy() {}
 
     public function resize($newWidth, $newHeight, $aspectRatio = true)
     {
@@ -107,8 +105,8 @@ class PGRThumb_Image_ImageMagick extends PGRThumb_Image
         //Resize
         $this->_commands[] = '-resize ' . $newWidth . 'x' . $newHeight . '!';
 
-        $this->_scaleX = $newWidth/$this->_width;
-        $this->_scaleY = $newHeight/$this->_height;
+        $this->_scaleX = $newWidth / $this->_width;
+        $this->_scaleY = $newHeight / $this->_height;
 
         $this->_width = $newWidth;
         $this->_height = $newHeight;
@@ -202,7 +200,7 @@ class PGRThumb_Image_ImageMagick extends PGRThumb_Image
         }
 
         $this->_commands[] = '-font "' . $font . '"';
-        $this->_commands[] = '-draw \'text gravity ' . $place . ' color "rgb(' . $red . ',' . $green . ',' . $blue . ')" "'. $text . '"\'';
+        $this->_commands[] = '-draw \'text gravity ' . $place . ' color "rgb(' . $red . ',' . $green . ',' . $blue . ')" "' . $text . '"\'';
     }
 
     public function saveImage($file, $quality = 100, $type = null)

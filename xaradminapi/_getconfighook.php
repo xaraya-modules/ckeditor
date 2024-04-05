@@ -4,7 +4,7 @@
  *
  */
 
-function ckeditor_adminapi_getconfighook($args)
+function ckeditor_adminapi_getconfighook(array $args = [], $context = null)
 {
     extract($args);
     if (!isset($extrainfo['tabs'])) {

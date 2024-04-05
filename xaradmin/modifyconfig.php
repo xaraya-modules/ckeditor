@@ -11,7 +11,7 @@
  * @author Marc Lutolf <mfl@netspan.ch> and Ryan Walker <ryan@webcommunicate.net>
  */
 
-function ckeditor_admin_modifyconfig()
+function ckeditor_admin_modifyconfig(array $args = [], $context = null)
 {
     // Security Check
     if (!xarSecurity::check('AdminCKEditor')) {
@@ -49,7 +49,7 @@ function ckeditor_admin_modifyconfig()
             ];
 
             foreach ($pgrconfig as $key => $type) {
-                $setting = 'PGRFileManager_'.$key;
+                $setting = 'PGRFileManager_' . $key;
                 if (!xarVar::fetch($setting, $type, ${$setting}, xarModVars::get('ckeditor', $setting), xarVar::NOT_REQUIRED)) {
                     return;
                 }
@@ -71,7 +71,7 @@ function ckeditor_admin_modifyconfig()
                 ]);
             }
 
-            xarResponse::Redirect(xarController::URL('ckeditor', 'admin', 'modifyconfig'));
+            xarController::redirect(xarController::URL('ckeditor', 'admin', 'modifyconfig'), null, $context);
             // Return
             return true;
             break;

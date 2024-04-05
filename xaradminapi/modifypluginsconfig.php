@@ -11,14 +11,14 @@
  * @author Marc Lutolf <mfl@netspan.ch> and Ryan Walker <ryan@webcommunicate.net>
  */
 
-function ckeditor_adminapi_modifypluginsconfig($args)
+function ckeditor_adminapi_modifypluginsconfig(array $args = [], $context = null)
 {
     extract($args);
 
     $pluginsConfigFile = sys::code() . 'modules/ckeditor/config.plugins.php';
     $config_php = join('', file($pluginsConfigFile));
 
-    $config_php = preg_replace('/\[\''.$name.'\'\]\s*=\s*(\'|\")(.*)\\1;/', "['".$name."'] = '$value';", $config_php);
+    $config_php = preg_replace('/\[\'' . $name . '\'\]\s*=\s*(\'|\")(.*)\\1;/', "['" . $name . "'] = '$value';", $config_php);
 
     $fp = fopen($pluginsConfigFile, 'wb');
     fwrite($fp, $config_php);

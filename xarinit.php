@@ -8,9 +8,9 @@
 function ckeditor_init()
 {
     # --------------------------------------------------------
-        #
+    #
     # Set up masks
-        #
+    #
     xarMasks::register('ViewCKEditor', 'All', 'ckeditor', 'All', 'All', 'ACCESS_OVERVIEW');
     xarMasks::register('ReadCKEditor', 'All', 'ckeditor', 'All', 'All', 'ACCESS_READ');
     xarMasks::register('CommentCKEditor', 'All', 'ckeditor', 'All', 'All', 'ACCESS_COMMENT');
@@ -21,9 +21,9 @@ function ckeditor_init()
     xarMasks::register('AdminCKEditor', 'All', 'ckeditor', 'All', 'All', 'ACCESS_ADMIN');
 
     # --------------------------------------------------------
-        #
+    #
     # Set up privileges
-        #
+    #
     xarPrivileges::register('ViewCKEditor', 'All', 'ckeditor', 'All', 'All', 'ACCESS_OVERVIEW');
     xarPrivileges::register('ReadCKEditor', 'All', 'ckeditor', 'All', 'All', 'ACCESS_READ');
     xarPrivileges::register('CommentCKEditor', 'All', 'ckeditor', 'All', 'All', 'ACCESS_COMMENT');
@@ -34,9 +34,9 @@ function ckeditor_init()
     xarPrivileges::register('AdminCKEditor', 'All', 'ckeditor', 'All', 'All', 'ACCESS_ADMIN');
 
     # --------------------------------------------------------
-        #
+    #
     # Set up modvars
-        #
+    #
     //xarModVars::set('ckeditor', 'itemsperpage', 20);
     //xarModVars::set('ckeditor', 'useModuleAlias',0);
     //xarModVars::set('ckeditor', 'aliasname','CKEditor');
@@ -71,7 +71,7 @@ function ckeditor_init()
     // Add variables like this next one when creating utility modules
     // This variable is referenced in the xaradmin/modifyconfig-utility.php file
     // This variable is referenced in the xartemplates/includes/defaults.xd file
-        //    xarModVars::set('ckeditor', 'bar', 'Bar');
+    //    xarModVars::set('ckeditor', 'bar', 'Bar');
 
     return true;
 }

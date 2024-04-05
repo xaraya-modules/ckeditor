@@ -150,7 +150,7 @@ if (isset($_POST['fun']) && PGRFileManagerConfig::$allowEdit) {
             $fileInfo = pathinfo($file);
             $image = PGRThumb_Image::factory($file);
             $image->maxSize($thumbWidth, $thumbHeight);
-            $image->saveImage($fileInfo['dirname'] . '/' . $fileInfo['filename']  . $thumbWidth . 'x' . $thumbHeight . '.' . $fileInfo['extension']);
+            $image->saveImage($fileInfo['dirname'] . '/' . $fileInfo['filename'] . $thumbWidth . 'x' . $thumbHeight . '.' . $fileInfo['extension']);
         }
     } elseif (($fun === 'rotateImage90Clockwise') && (isset($_POST['filename']))) {
         require_once(realpath(dirname(__FILE__) . '/../PGRThumb/php/Image.php'));
@@ -197,7 +197,7 @@ foreach (scandir($directory) as $elem) {
         $file['date'] = date('Y-m-d H:i:s', filemtime($filepath));
         $file['imageInfo'] = PGRFileManagerUtils::getImageInfo($filepath);
         if ($file['imageInfo'] != false) {
-            $file['thumb'] = PGRFileManagerUtils::getPhpThumb("src=" . urlencode(PGRFileManagerConfig::$rootPath . $_POST['dir'] . '/' .$elem) . "&w=64&h=64&md5=" . $file['md5']);
+            $file['thumb'] = PGRFileManagerUtils::getPhpThumb("src=" . urlencode(PGRFileManagerConfig::$rootPath . $_POST['dir'] . '/' . $elem) . "&w=64&h=64&md5=" . $file['md5']);
         } else {
             $file['thumb'] = false;
         }

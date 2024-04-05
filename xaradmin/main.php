@@ -11,7 +11,7 @@
  * @author Marc Lutolf <mfl@netspan.ch> and Ryan Walker <ryan@webcommunicate.net>
  */
 
-function ckeditor_admin_main()
+function ckeditor_admin_main(array $args = [], $context = null)
 {
     if (!xarSecurity::check('AdminCKEditor')) {
         return;
@@ -24,9 +24,9 @@ function ckeditor_admin_main()
     $samemodule = $info[0] == $refererinfo[0];
 
     if (xarModVars::get('modules', 'disableoverview') == 0 || $samemodule) {
-        xarResponse::Redirect(xarController::URL('ckeditor', 'admin', 'overview'));
+        xarController::redirect(xarController::URL('ckeditor', 'admin', 'overview'), null, $context);
     } else {
-        xarResponse::Redirect(xarController::URL('ckeditor', 'admin', 'modifyconfig'));
+        xarController::redirect(xarController::URL('ckeditor', 'admin', 'modifyconfig'), null, $context);
     }
     // success
     return true;

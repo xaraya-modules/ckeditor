@@ -11,7 +11,7 @@
  * @author Marc Lutolf <mfl@netspan.ch> and Ryan Walker <ryan@webcommunicate.net>
  */
 
-function ckeditor_userapi_getmenulinks()
+function ckeditor_userapi_getmenulinks(array $args = [], $context = null)
 {
     $menulinks = [];
 

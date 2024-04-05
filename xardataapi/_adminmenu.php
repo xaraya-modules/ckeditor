@@ -5,7 +5,7 @@
  */
 
 // TODO: turn this into an xml file
-function ckeditor_dataapi_adminmenu()
+function ckeditor_dataapi_adminmenu(array $args = [], $context = null)
 {
     return [
         ['includes' => ['main','overview'], 'target' => 'main', 'label' => xarML('CKEditor Overview')],

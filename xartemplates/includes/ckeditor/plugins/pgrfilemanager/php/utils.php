@@ -88,7 +88,7 @@ class PGRFileManagerUtils
             if ($item == '.' || $item == '..') {
                 continue;
             }
-            if (!self::deleteDirectory($dir.DIRECTORY_SEPARATOR.$item)) {
+            if (!self::deleteDirectory($dir . DIRECTORY_SEPARATOR . $item)) {
                 return false;
             }
         }
