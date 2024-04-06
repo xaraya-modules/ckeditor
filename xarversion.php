@@ -21,6 +21,11 @@ $modversion['user']           = false;
 $modversion['class']          = 'Complete';
 $modversion['category']       = 'Utility';
 $modversion['securityschema'] = [];
+//$modversion['namespace']      = 'Xaraya\Modules\CKEditor';
+$modversion['twigtemplates']  = true;
 $modversion['dependencyinfo'] = [
-    0 => ['name' => 'core', 'version_ge' => '2.2.0', 'version_le' => '2.99.99'],
+    0 => [
+        'name' => 'Xaraya Core',
+        'version_ge' => '2.4.1',
+    ],
 ];
