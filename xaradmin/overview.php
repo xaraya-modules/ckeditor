@@ -17,6 +17,9 @@ function ckeditor_admin_overview(array $args = [], $context = null)
         return;
     }
 
+    $data = [];
+
     // success
-    return xarTpl::module('ckeditor', 'admin', 'overview');
+    $data['context'] ??= $context;
+    return xarTpl::module('ckeditor', 'admin', 'overview', $data);
 }

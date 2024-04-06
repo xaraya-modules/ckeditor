@@ -53,7 +53,7 @@
             } %}
 
 		{% for key, note in pgrconfig %}
-			{% set pgrsetting = 'PGRFileManager_'.key %}
+			{% set pgrsetting = 'PGRFileManager_' ~ key %}
 		    <div class="xar-form-input-wrapper">
                       <label for="{{ pgrsetting }}" class="xar-form-label">{{ key }}</label>
                      
