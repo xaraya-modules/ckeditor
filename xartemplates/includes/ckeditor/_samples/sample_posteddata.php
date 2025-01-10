@@ -33,11 +33,8 @@ else {
 }	// prior to 4.1.0, use HTTP_POST_VARS
 
 foreach ($postArray as $sForm => $value) {
-    if (get_magic_quotes_gpc()) {
-        $postedValue = htmlspecialchars(stripslashes($value)) ;
-    } else {
-        $postedValue = htmlspecialchars($value) ;
-    } ?>
+    $postedValue = htmlspecialchars($value) ;
+	?>
 		<tr>
 			<th style="vertical-align: top"><?php echo $sForm?></th>
 			<td><pre><?php echo $postedValue?></pre></td>

@@ -89,7 +89,7 @@ class PGRThumb_UrlThumb
     /**
      * Generate thumb
      *
-     * @return false|image
+     * @return false|void
      */
     public static function generateThumb()
     {

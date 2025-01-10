@@ -69,9 +69,6 @@ if (isset($_POST['fun']) && PGRFileManagerConfig::$allowEdit) {
     if ($fun === 'getContent') {
         echo file_get_contents($filename);
     } elseif (($fun === 'putContent') && (isset($_POST['content']))) {
-        if (get_magic_quotes_gpc()) {
-            $_POST['content'] = stripslashes($_POST['content']);
-        }
         file_put_contents($filename, $_POST['content']);
     }
 }

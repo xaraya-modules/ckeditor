@@ -16,6 +16,7 @@ use xarSecurity;
 use xarServer;
 use xarModVars;
 use xarController;
+use xarRequest;
 use sys;
 use BadParameterException;
 

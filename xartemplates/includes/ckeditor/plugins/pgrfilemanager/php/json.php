@@ -115,6 +115,8 @@ define('SERVICES_JSON_SUPPRESS_ERRORS', 32);
  */
 class Services_JSON
 {
+    private $use;
+
     /**
      * constructs a new JSON instance
      *
@@ -131,7 +133,7 @@ class Services_JSON
      *                                   bubble up with an error, so all return values
      *                                   from encode() should be checked with isError()
      */
-    public function Services_JSON($use = 0)
+    public function __construct($use = 0)
     {
         $this->use = $use;
     }
@@ -773,7 +775,7 @@ class Services_JSON
 if (class_exists('PEAR_Error')) {
     class Services_JSON_Error extends PEAR_Error
     {
-        public function Services_JSON_Error(
+        public function __construct(
             $message = 'unknown error',
             $code = null,
             $mode = null,
@@ -789,7 +791,7 @@ if (class_exists('PEAR_Error')) {
      */
     class Services_JSON_Error
     {
-        public function Services_JSON_Error(
+        public function __construct(
             $message = 'unknown error',
             $code = null,
             $mode = null,

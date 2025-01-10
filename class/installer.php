@@ -128,7 +128,7 @@ class Installer extends InstallerClass
         return true;
     }
 
-    public function upgrade()
+    public function upgrade($oldversion)
     {
         return true;
     }
