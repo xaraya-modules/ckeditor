@@ -11,6 +11,8 @@
 
 namespace Xaraya\Modules\Ckeditor\AdminApi;
 
+
+use Xaraya\Modules\Ckeditor\AdminApi;
 use Xaraya\Modules\MethodClass;
 use sys;
 use BadParameterException;
@@ -19,6 +21,7 @@ sys::import('xaraya.modules.method');
 
 /**
  * ckeditor adminapi modifypluginsconfig function
+ * @extends MethodClass<AdminApi>
  */
 class ModifypluginsconfigMethod extends MethodClass
 {

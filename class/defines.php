@@ -11,18 +11,9 @@
 
 namespace Xaraya\Modules\Ckeditor;
 
-use Xaraya\Modules\UserApiClass;
-use sys;
-
-sys::import('xaraya.modules.userapi');
-
 /**
- * Handle the ckeditor user API
- *
- * @method mixed getmenulinks(array $args)
- * @extends UserApiClass<Module>
+ * Defines constants for the ckeditor module (see xartemplates/includes/ckeditor/plugins/pgrfilemanager/php/json.php)
  */
-class UserApi extends UserApiClass
+class Defines
 {
-    // ...
 }

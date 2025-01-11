@@ -18,6 +18,9 @@ sys::import('xaraya.modules.adminapi');
 
 /**
  * Handle the ckeditor admin API
+ *
+ * @method mixed getmenulinks(array $args)
+ * @method mixed modifypluginsconfig(array $args)
  * @extends AdminApiClass<Module>
  */
 class AdminApi extends AdminApiClass

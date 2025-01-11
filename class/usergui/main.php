@@ -11,6 +11,8 @@
 
 namespace Xaraya\Modules\Ckeditor\UserGui;
 
+
+use Xaraya\Modules\Ckeditor\UserGui;
 use Xaraya\Modules\MethodClass;
 use xarSecurity;
 use sys;
@@ -20,6 +22,7 @@ sys::import('xaraya.modules.method');
 
 /**
  * ckeditor user main function
+ * @extends MethodClass<UserGui>
  */
 class MainMethod extends MethodClass
 {

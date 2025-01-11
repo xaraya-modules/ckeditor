@@ -19,6 +19,8 @@ sys::import('modules.ckeditor.class.userapi');
 
 /**
  * Handle the ckeditor user GUI
+ *
+ * @method mixed main(array $args)
  * @extends UserGuiClass<Module>
  */
 class UserGui extends UserGuiClass

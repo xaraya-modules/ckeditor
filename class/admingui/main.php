@@ -11,6 +11,8 @@
 
 namespace Xaraya\Modules\Ckeditor\AdminGui;
 
+
+use Xaraya\Modules\Ckeditor\AdminGui;
 use Xaraya\Modules\MethodClass;
 use xarSecurity;
 use xarServer;
@@ -24,6 +26,7 @@ sys::import('xaraya.modules.method');
 
 /**
  * ckeditor admin main function
+ * @extends MethodClass<AdminGui>
  */
 class MainMethod extends MethodClass
 {

@@ -19,6 +19,11 @@ sys::import('modules.ckeditor.class.adminapi');
 
 /**
  * Handle the ckeditor admin GUI
+ *
+ * @method mixed main(array $args)
+ * @method mixed modifyconfig(array $args)
+ * @method mixed overview(array $args)
+ * @extends AdminGuiClass<Module>
  */
 class AdminGui extends AdminGuiClass
 {
