@@ -43,24 +43,16 @@ class GetmenulinksMethod extends MethodClass
     {
         $menulinks = [];
 
-        if (xarSecurity::check('AdminCKEditor', 0)) {
-            $menulinks[] = ['url'   => xarController::URL(
-                'ckeditor',
-                'admin',
-                'modifyconfig'
-            ),
-                'title' => xarML('Modify Configuration'),
-                'label' => xarML('Modify Configuration'), ];
+        if ($this->checkAccess('AdminCKEditor', 0)) {
+            $menulinks[] = ['url'   => $this->getUrl('admin', 'modifyconfig'),
+                'title' => $this->translate('Modify Configuration'),
+                'label' => $this->translate('Modify Configuration'), ];
         }
 
-        if (xarSecurity::check('AdminCKEditor', 0)) {
-            $menulinks[] = ['url'   => xarController::URL(
-                'ckeditor',
-                'admin',
-                'overview'
-            ),
-                'title' => xarML('Module Overview'),
-                'label' => xarML('Overview'),
+        if ($this->checkAccess('AdminCKEditor', 0)) {
+            $menulinks[] = ['url'   => $this->getUrl('admin', 'overview'),
+                'title' => $this->translate('Module Overview'),
+                'label' => $this->translate('Overview'),
                 'active' => ['main'], ];
         }
 

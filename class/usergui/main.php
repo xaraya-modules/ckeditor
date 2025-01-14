@@ -41,7 +41,7 @@ class MainMethod extends MethodClass
     public function __invoke(array $args = [])
     {
         // Security Check
-        if (!xarSecurity::check('ReadCKEditor')) {
+        if (!$this->checkAccess('ReadCKEditor')) {
             return;
         }
 

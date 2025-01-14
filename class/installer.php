@@ -89,10 +89,10 @@ class Installer extends InstallerClass
         #
         # Set up modvars
         #
-        //xarModVars::set('ckeditor', 'itemsperpage', 20);
-        //xarModVars::set('ckeditor', 'useModuleAlias',0);
-        //xarModVars::set('ckeditor', 'aliasname','CKEditor');
-        //xarModVars::set('ckeditor', 'defaultmastertable','ckeditor_ckeditor');
+        //$this->setModVar('itemsperpage', 20);
+        //$this->setModVar('useModuleAlias',0);
+        //$this->setModVar('aliasname','CKEditor');
+        //$this->setModVar('defaultmastertable','ckeditor_ckeditor');
 
         if (strstr(realpath(sys::varpath()), '/')) {
             $str = '/uploads';
@@ -102,14 +102,14 @@ class Installer extends InstallerClass
         $PGRFileManager_rootPath = realpath(sys::varpath()) . $str;
         $PGRFileManager_urlPath = xarServer::getBaseURL() . 'var/uploads';
 
-        xarModVars::set('ckeditor', 'PGRFileManager_rootPath', $PGRFileManager_rootPath);
-        xarModVars::set('ckeditor', 'PGRFileManager_urlPath', $PGRFileManager_urlPath);
-        xarModVars::set('ckeditor', 'PGRFileManager_allowedExtensions', 'pdf, txt, rtf, jpg, gif, jpeg, png');
-        xarModVars::set('ckeditor', 'PGRFileManager_imagesExtensions', 'jpg, gif, jpeg, png, bmp');
-        xarModVars::set('ckeditor', 'PGRFileManager_fileMaxSize', 1024 * 1024 * 10);
-        xarModVars::set('ckeditor', 'PGRFileManager_imageMaxHeight', 724);
-        xarModVars::set('ckeditor', 'PGRFileManager_imageMaxWidth', 1280);
-        xarModVars::set('ckeditor', 'PGRFileManager_allowEdit', 'true');
+        $this->setModVar('PGRFileManager_rootPath', $PGRFileManager_rootPath);
+        $this->setModVar('PGRFileManager_urlPath', $PGRFileManager_urlPath);
+        $this->setModVar('PGRFileManager_allowedExtensions', 'pdf, txt, rtf, jpg, gif, jpeg, png');
+        $this->setModVar('PGRFileManager_imagesExtensions', 'jpg, gif, jpeg, png, bmp');
+        $this->setModVar('PGRFileManager_fileMaxSize', 1024 * 1024 * 10);
+        $this->setModVar('PGRFileManager_imageMaxHeight', 724);
+        $this->setModVar('PGRFileManager_imageMaxWidth', 1280);
+        $this->setModVar('PGRFileManager_allowEdit', 'true');
 
         xarMod::apiFunc('ckeditor', 'admin', 'modifypluginsconfig', [
             'name' => 'PGRFileManager.rootPath',
@@ -123,7 +123,7 @@ class Installer extends InstallerClass
         // Add variables like this next one when creating utility modules
         // This variable is referenced in the xaradmin/modifyconfig-utility.php file
         // This variable is referenced in the xartemplates/includes/defaults.xd file
-        //    xarModVars::set('ckeditor', 'bar', 'Bar');
+        //    $this->setModVar('bar', 'Bar');
 
         return true;
     }

@@ -46,10 +46,10 @@ class ModifyconfigMethod extends MethodClass
     public function __invoke(array $args = [])
     {
         // Security Check
-        if (!xarSecurity::check('AdminCKEditor')) {
+        if (!$this->checkAccess('AdminCKEditor')) {
             return;
         }
-        if (!xarVar::fetch('phase', 'str:1:100', $phase, 'modify', xarVar::NOT_REQUIRED, xarVar::PREP_FOR_DISPLAY)) {
+        if (!$this->fetch('phase', 'str:1:100', $phase, 'modify', xarVar::NOT_REQUIRED, xarVar::PREP_FOR_DISPLAY)) {
             return;
         }
 
@@ -60,14 +60,14 @@ class ModifyconfigMethod extends MethodClass
             case 'update':
 
                 // Confirm authorisation code
-                if (!xarSec::confirmAuthKey()) {
+                if (!$this->confirmAuthKey()) {
                     return;
                 }
 
-                /*if (!xarVar::fetch('itemsperpage', 'int', $itemsperpage, xarModVars::get('ckeditor', 'itemsperpage'), xarVar::NOT_REQUIRED, xarVar::PREP_FOR_DISPLAY)) return;
-                if (!xarVar::fetch('shorturls', 'checkbox', $shorturls, false, xarVar::NOT_REQUIRED)) return;
-                if (!xarVar::fetch('modulealias', 'checkbox', $useModuleAlias,  xarModVars::get('ckeditor', 'useModuleAlias'), xarVar::NOT_REQUIRED)) return;
-                if (!xarVar::fetch('aliasname', 'str', $aliasname,  xarModVars::get('ckeditor', 'aliasname'), xarVar::NOT_REQUIRED)) return;*/
+                /*if (!$this->fetch('itemsperpage', 'int', $itemsperpage, $this->getModVar('itemsperpage'), xarVar::NOT_REQUIRED, xarVar::PREP_FOR_DISPLAY)) return;
+                if (!$this->fetch('shorturls', 'checkbox', $shorturls, false, xarVar::NOT_REQUIRED)) return;
+                if (!$this->fetch('modulealias', 'checkbox', $useModuleAlias,  $this->getModVar('useModuleAlias'), xarVar::NOT_REQUIRED)) return;
+                if (!$this->fetch('aliasname', 'str', $aliasname,  $this->getModVar('aliasname'), xarVar::NOT_REQUIRED)) return;*/
 
                 $pgrconfig = [
                     'rootPath' => 'str',
@@ -82,7 +82,7 @@ class ModifyconfigMethod extends MethodClass
 
                 foreach ($pgrconfig as $key => $type) {
                     $setting = 'PGRFileManager_' . $key;
-                    if (!xarVar::fetch($setting, $type, ${$setting}, xarModVars::get('ckeditor', $setting), xarVar::NOT_REQUIRED)) {
+                    if (!$this->fetch($setting, $type, ${$setting}, $this->getModVar($setting), xarVar::NOT_REQUIRED)) {
                         return;
                     }
 
@@ -103,12 +103,12 @@ class ModifyconfigMethod extends MethodClass
                     ]);
                 }
 
-                xarController::redirect(xarController::URL('ckeditor', 'admin', 'modifyconfig'), null, $this->getContext());
+                $this->redirect($this->getUrl('admin', 'modifyconfig'));
                 // Return
                 return true;
                 break;
         }
-        $data['authid'] = xarSec::genAuthKey();
+        $data['authid'] = $this->genAuthKey();
         return $data;
     }
 }

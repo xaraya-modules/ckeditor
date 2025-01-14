@@ -41,7 +41,7 @@ class OverviewMethod extends MethodClass
      */
     public function __invoke(array $args = [])
     {
-        if (!xarSecurity::check('ReadCKEditor')) {
+        if (!$this->checkAccess('ReadCKEditor')) {
             return;
         }
 

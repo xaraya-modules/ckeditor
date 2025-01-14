@@ -43,14 +43,10 @@ class GetmenulinksMethod extends MethodClass
     {
         $menulinks = [];
 
-        if (xarSecurity::check('ViewCKEditor', 0)) {
-            $menulinks[] = ['url'   => xarController::URL(
-                'ckeditor',
-                'user',
-                'main'
-            ),
-                'title' => xarML(''),
-                'label' => xarML(''), ];
+        if ($this->checkAccess('ViewCKEditor', 0)) {
+            $menulinks[] = ['url'   => $this->getUrl('user', 'main'),
+                'title' => $this->translate(''),
+                'label' => $this->translate(''), ];
         }
 
         return $menulinks;
