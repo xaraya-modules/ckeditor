@@ -44,7 +44,7 @@ class MainMethod extends MethodClass
      */
     public function __invoke(array $args = [])
     {
-        if (!$this->checkAccess('AdminCKEditor')) {
+        if (!$this->sec()->checkAccess('AdminCKEditor')) {
             return;
         }
 
@@ -55,9 +55,9 @@ class MainMethod extends MethodClass
         $samemodule = $info[0] == $refererinfo[0];
 
         if (xarModVars::get('modules', 'disableoverview') == 0 || $samemodule) {
-            $this->redirect($this->getUrl('admin', 'overview'));
+            $this->ctl()->redirect($this->mod()->getURL('admin', 'overview'));
         } else {
-            $this->redirect($this->getUrl('admin', 'modifyconfig'));
+            $this->ctl()->redirect($this->mod()->getURL('admin', 'modifyconfig'));
         }
         // success
         return true;

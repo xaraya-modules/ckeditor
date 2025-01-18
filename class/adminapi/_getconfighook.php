@@ -15,7 +15,7 @@ function ckeditor_adminapi_getconfighook(array $args = [], $context = null)
     $tabinfo = [
         'module'  => $module,
         'configarea'  => 'general',
-        'configtitle'  => $this->translate('CKEditor'),
+        'configtitle'  => $this->ml('CKEditor'),
         'configcontent' => '',
     ];
     $extrainfo['tabs'][] = $tabinfo;

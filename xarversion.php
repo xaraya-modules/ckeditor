@@ -7,8 +7,8 @@
 $modversion['name']           = 'ckeditor';
 $modversion['id']             = '30066';
 $modversion['version']        = '2.2.0';
-$modversion['displayname']    = xarML('CKEditor');
-$modversion['description']    = xarML('A WYSIWYG editor module');
+$modversion['displayname']    = xarMLS::translate('CKEditor');
+$modversion['description']    = xarMLS::translate('A WYSIWYG editor module');
 $modversion['credits']        = 'credits.txt';
 $modversion['help']           = 'help.txt';
 $modversion['changelog']      = 'changelog.txt';

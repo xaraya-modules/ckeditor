@@ -43,10 +43,10 @@ class GetmenulinksMethod extends MethodClass
     {
         $menulinks = [];
 
-        if ($this->checkAccess('ViewCKEditor', 0)) {
-            $menulinks[] = ['url'   => $this->getUrl('user', 'main'),
-                'title' => $this->translate(''),
-                'label' => $this->translate(''), ];
+        if ($this->sec()->checkAccess('ViewCKEditor', 0)) {
+            $menulinks[] = ['url'   => $this->mod()->getURL('user', 'main'),
+                'title' => $this->ml(''),
+                'label' => $this->ml(''), ];
         }
 
         return $menulinks;

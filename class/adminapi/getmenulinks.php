@@ -43,16 +43,16 @@ class GetmenulinksMethod extends MethodClass
     {
         $menulinks = [];
 
-        if ($this->checkAccess('AdminCKEditor', 0)) {
-            $menulinks[] = ['url'   => $this->getUrl('admin', 'modifyconfig'),
-                'title' => $this->translate('Modify Configuration'),
-                'label' => $this->translate('Modify Configuration'), ];
+        if ($this->sec()->checkAccess('AdminCKEditor', 0)) {
+            $menulinks[] = ['url'   => $this->mod()->getURL('admin', 'modifyconfig'),
+                'title' => $this->ml('Modify Configuration'),
+                'label' => $this->ml('Modify Configuration'), ];
         }
 
-        if ($this->checkAccess('AdminCKEditor', 0)) {
-            $menulinks[] = ['url'   => $this->getUrl('admin', 'overview'),
-                'title' => $this->translate('Module Overview'),
-                'label' => $this->translate('Overview'),
+        if ($this->sec()->checkAccess('AdminCKEditor', 0)) {
+            $menulinks[] = ['url'   => $this->mod()->getURL('admin', 'overview'),
+                'title' => $this->ml('Module Overview'),
+                'label' => $this->ml('Overview'),
                 'active' => ['main'], ];
         }
 

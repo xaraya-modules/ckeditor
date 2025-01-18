@@ -41,7 +41,7 @@ class OverviewMethod extends MethodClass
      */
     public function __invoke(array $args = [])
     {
-        if (!$this->checkAccess('ReadCKEditor')) {
+        if (!$this->sec()->checkAccess('ReadCKEditor')) {
             return;
         }
 
@@ -49,6 +49,6 @@ class OverviewMethod extends MethodClass
 
         // success
         $data['context'] ??= $this->getContext();
-        return xarTpl::module('ckeditor', 'admin', 'overview', $data);
+        return $this->mod()->template('overview', $data);
     }
 }
