@@ -13,6 +13,7 @@ namespace Xaraya\Modules\Ckeditor\AdminGui;
 
 
 use Xaraya\Modules\Ckeditor\AdminGui;
+use Xaraya\Modules\Ckeditor\AdminApi;
 use Xaraya\Modules\MethodClass;
 use xarSecurity;
 use xarVar;
@@ -42,9 +43,12 @@ class ModifyconfigMethod extends MethodClass
      * @subpackage CKEditor Module
      * @link http://www.xaraya.com/index.php/release/eid/1166
      * @author Marc Lutolf <mfl@netspan.ch> and Ryan Walker <ryan@webcommunicate.net>
+     * @see AdminGui::modifyconfig()
      */
     public function __invoke(array $args = [])
     {
+        /** @var AdminApi $adminapi */
+        $adminapi = $this->adminapi();
         // Security Check
         if (!$this->sec()->checkAccess('AdminCKEditor')) {
             return;
@@ -97,7 +101,7 @@ class ModifyconfigMethod extends MethodClass
                     }
 
                     $this->mod()->setVar($setting, ${$setting});
-                    xarMod::apiFunc('ckeditor', 'admin', 'modifypluginsconfig', [
+                    $adminapi->modifypluginsconfig([
                         'name' => 'PGRFileManager.' . $key,
                         'value' => ${$setting},
                     ]);
@@ -106,7 +110,6 @@ class ModifyconfigMethod extends MethodClass
                 $this->ctl()->redirect($this->mod()->getURL('admin', 'modifyconfig'));
                 // Return
                 return true;
-                break;
         }
         $data['authid'] = $this->sec()->genAuthKey();
         return $data;

@@ -38,6 +38,7 @@ class OverviewMethod extends MethodClass
      * @subpackage CKEditor Module
      * @link http://www.xaraya.com/index.php/release/eid/1166
      * @author Marc Lutolf <mfl@netspan.ch> and Ryan Walker <ryan@webcommunicate.net>
+     * @see AdminGui::overview()
      */
     public function __invoke(array $args = [])
     {
