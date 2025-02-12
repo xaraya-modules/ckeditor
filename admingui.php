@@ -11,19 +11,21 @@
 
 namespace Xaraya\Modules\Ckeditor;
 
-use Xaraya\Modules\UserGuiClass;
+use Xaraya\Modules\AdminGuiClass;
 use sys;
 
-sys::import('xaraya.modules.usergui');
-sys::import('modules.ckeditor.class.userapi');
+sys::import('xaraya.modules.admingui');
+sys::import('modules.ckeditor.adminapi');
 
 /**
- * Handle the ckeditor user GUI
+ * Handle the ckeditor admin GUI
  *
  * @method mixed main(array $args)
- * @extends UserGuiClass<Module>
+ * @method mixed modifyconfig(array $args)
+ * @method mixed overview(array $args)
+ * @extends AdminGuiClass<Module>
  */
-class UserGui extends UserGuiClass
+class AdminGui extends AdminGuiClass
 {
     // ...
 }
