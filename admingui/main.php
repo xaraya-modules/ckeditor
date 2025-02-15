@@ -49,11 +49,7 @@ class MainMethod extends MethodClass
             return;
         }
 
-        $request = new xarRequest();
-        $refererinfo =  xarController::$request->getInfo(xarServer::getVar('HTTP_REFERER'));
-        $request = new xarRequest();
-        $info =  xarController::$request->getInfo();
-        $samemodule = $info[0] == $refererinfo[0];
+        $samemodule = xarController::isRefererSameModule();
 
         if (xarModVars::get('modules', 'disableoverview') == 0 || $samemodule) {
             $this->ctl()->redirect($this->mod()->getURL('admin', 'overview'));
