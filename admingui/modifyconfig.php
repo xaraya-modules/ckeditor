@@ -53,9 +53,7 @@ class ModifyconfigMethod extends MethodClass
         if (!$this->sec()->checkAccess('AdminCKEditor')) {
             return;
         }
-        if (!$this->var()->find('phase', $phase, 'str:1:100', 'modify')) {
-            return;
-        }
+        $this->var()->find('phase', $phase, 'str:1:100', 'modify');
 
         switch (strtolower($phase)) {
             case 'modify':
@@ -68,10 +66,10 @@ class ModifyconfigMethod extends MethodClass
                     return;
                 }
 
-                /*if (!$this->var()->find('itemsperpage', $itemsperpage, 'int', $this->mod()->getVar('itemsperpage'))) return;
-                if (!$this->var()->find('shorturls', $shorturls, 'checkbox', false)) return;
-                if (!$this->var()->find('modulealias', $useModuleAlias, 'checkbox', $this->mod()->getVar('useModuleAlias'))) return;
-                if (!$this->var()->find('aliasname', $aliasname, 'str', $this->mod()->getVar('aliasname'))) return;*/
+                /*$this->var()->find('itemsperpage', $itemsperpage, 'int', $this->mod()->getVar('itemsperpage'));
+                $this->var()->find('shorturls', $shorturls, 'checkbox', false);
+                $this->var()->find('modulealias', $useModuleAlias, 'checkbox', $this->mod()->getVar('useModuleAlias'));
+                $this->var()->find('aliasname', $aliasname, 'str', $this->mod()->getVar('aliasname'));*/
 
                 $pgrconfig = [
                     'rootPath' => 'str',
@@ -86,9 +84,7 @@ class ModifyconfigMethod extends MethodClass
 
                 foreach ($pgrconfig as $key => $type) {
                     $setting = 'PGRFileManager_' . $key;
-                    if (!$this->var()->find($setting, ${$setting}, $type, $this->mod()->getVar($setting))) {
-                        return;
-                    }
+                    $this->var()->find($setting, ${$setting}, $type, $this->mod()->getVar($setting));
 
                     if ($key == 'imagesExtensions' || $key == 'allowedExtensions') {
                         ${$setting} = str_replace(' ', '', ${$setting});

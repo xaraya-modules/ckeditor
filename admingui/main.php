@@ -51,7 +51,7 @@ class MainMethod extends MethodClass
 
         $samemodule = xarController::isRefererSameModule();
 
-        if (xarModVars::get('modules', 'disableoverview') == 0 || $samemodule) {
+        if ($this->mod('modules')->getVar('disableoverview') == 0 || $samemodule) {
             $this->ctl()->redirect($this->mod()->getURL('admin', 'overview'));
         } else {
             $this->ctl()->redirect($this->mod()->getURL('admin', 'modifyconfig'));
