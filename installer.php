@@ -100,7 +100,7 @@ class Installer extends InstallerClass
             $str = '\uploads';
         }
         $PGRFileManager_rootPath = realpath(sys::varpath()) . $str;
-        $PGRFileManager_urlPath = xarServer::getBaseURL() . 'var/uploads';
+        $PGRFileManager_urlPath = $this->ctl()->getBaseURL() . 'var/uploads';
 
         $this->mod()->setVar('PGRFileManager_rootPath', $PGRFileManager_rootPath);
         $this->mod()->setVar('PGRFileManager_urlPath', $PGRFileManager_urlPath);
