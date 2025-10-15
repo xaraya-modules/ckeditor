@@ -16,11 +16,8 @@ namespace Xaraya\Modules\Ckeditor;
 use Xaraya\Modules\InstallerClass;
 use xarMasks;
 use xarPrivileges;
-use xarModVars;
-use xarServer;
 use xarMod;
 use sys;
-use Exception;
 
 sys::import('xaraya.modules.installer');
 

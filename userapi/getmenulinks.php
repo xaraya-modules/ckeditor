@@ -14,10 +14,7 @@ namespace Xaraya\Modules\Ckeditor\UserApi;
 
 use Xaraya\Modules\Ckeditor\UserApi;
 use Xaraya\Modules\MethodClass;
-use xarSecurity;
-use xarController;
 use sys;
-use BadParameterException;
 
 sys::import('xaraya.modules.method');
 

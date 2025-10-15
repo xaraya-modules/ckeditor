@@ -15,14 +15,7 @@ namespace Xaraya\Modules\Ckeditor\AdminGui;
 use Xaraya\Modules\Ckeditor\AdminGui;
 use Xaraya\Modules\Ckeditor\AdminApi;
 use Xaraya\Modules\MethodClass;
-use xarSecurity;
-use xarVar;
-use xarSec;
-use xarModVars;
-use xarMod;
-use xarController;
 use sys;
-use BadParameterException;
 
 sys::import('xaraya.modules.method');
 
