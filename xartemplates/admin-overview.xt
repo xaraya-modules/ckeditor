@@ -22,7 +22,7 @@
 	<p>The CKEditor module supplies the "editor" property type for use in your objects.  To use CKEditor with a Dynamic Data object, simply add one or more "editor" properties to your object.</p> 
 
         <p>Configuration settings for CKEditor are found in
-	<strong><a href="#sys::code()#modules/ckeditor/xartemplates/includes/ckeditor/config.js">ckeditor/xartemplates/includes/ckeditor/config.js</a></strong>
+	<strong><a href="#xarTpl::getCodeUrl()#modules/ckeditor/xartemplates/includes/ckeditor/config.js">ckeditor/xartemplates/includes/ckeditor/config.js</a></strong>
 	</p>
 
 	<p>
