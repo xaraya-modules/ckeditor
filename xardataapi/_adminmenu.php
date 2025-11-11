@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Return the options for the admin menu
  *

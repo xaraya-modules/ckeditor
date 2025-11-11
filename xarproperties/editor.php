@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Editor GUI property
  *
@@ -15,7 +16,6 @@
  * @author M. Lutolf (mfl@netspan.ch)
  * @package modules
  */
-sys::import('modules.base.xarproperties.textarea');
 
 class EditorProperty extends TextAreaProperty
 {

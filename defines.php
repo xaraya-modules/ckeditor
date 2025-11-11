@@ -14,6 +14,4 @@ namespace Xaraya\Modules\Ckeditor;
 /**
  * Defines constants for the ckeditor module (see xartemplates/includes/ckeditor/plugins/pgrfilemanager/php/json.php)
  */
-class Defines
-{
-}
+class Defines {}

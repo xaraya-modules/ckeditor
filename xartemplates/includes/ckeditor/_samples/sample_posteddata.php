@@ -34,7 +34,7 @@ else {
 
 foreach ($postArray as $sForm => $value) {
     $postedValue = htmlspecialchars($value) ;
-	?>
+    ?>
 		<tr>
 			<th style="vertical-align: top"><?php echo $sForm?></th>
 			<td><pre><?php echo $postedValue?></pre></td>

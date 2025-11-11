@@ -1,4 +1,5 @@
 <?php
+
 /*
 Copyright (c) 2009 Grzegorz Żydek
 
@@ -33,9 +34,9 @@ if (PGRFileManagerConfig::$authorize) {
         die();
     }
     if (!isset($_SESSION['PGRFileManagerAuthorized'])) {
-        if (isset($_POST) && isset($_POST['user']) && isset($_POST['pass']) &&
-            ($_POST['user'] == PGRFileManagerConfig::$authorizeUser) &&
-            ($_POST['pass'] == PGRFileManagerConfig::$authorizePass)) {
+        if (isset($_POST) && isset($_POST['user']) && isset($_POST['pass'])
+            && ($_POST['user'] == PGRFileManagerConfig::$authorizeUser)
+            && ($_POST['pass'] == PGRFileManagerConfig::$authorizePass)) {
             $_SESSION['PGRFileManagerAuthorized'] = true;
             include_once dirname(__FILE__) . '/utils.php';
             header('Location:' . PGRFileManagerUtils::curPageURL());

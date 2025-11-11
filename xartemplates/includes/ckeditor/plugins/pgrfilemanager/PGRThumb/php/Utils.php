@@ -1,4 +1,5 @@
 <?php
+
 /*
 Copyright (c) 2009 Grzegorz Żydek
 
@@ -33,8 +34,8 @@ class PGRThumb_Utils
 
         if (strlen($color) == 6) {
             [$r, $g, $b] = [$color[0] . $color[1],
-                                     $color[2] . $color[3],
-                                     $color[4] . $color[5], ];
+                $color[2] . $color[3],
+                $color[4] . $color[5], ];
         } elseif (strlen($color) == 3) {
             [$r, $g, $b] = [$color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2]];
         } else {

@@ -507,16 +507,16 @@ class Services_JSON
     {
         $str = preg_replace([
 
-                // eliminate single line comments in '// ...' form
-                '#^\s*//(.+)$#m',
+            // eliminate single line comments in '// ...' form
+            '#^\s*//(.+)$#m',
 
-                // eliminate multi-line comments in '/* ... */' form, at start of string
-                '#^\s*/\*(.+)\*/#Us',
+            // eliminate multi-line comments in '/* ... */' form, at start of string
+            '#^\s*/\*(.+)\*/#Us',
 
-                // eliminate multi-line comments in '/* ... */' form, at end of string
-                '#/\*(.+)\*/\s*$#Us',
+            // eliminate multi-line comments in '/* ... */' form, at end of string
+            '#/\*(.+)\*/\s*$#Us',
 
-            ], '', $str);
+        ], '', $str);
 
         // eliminate extraneous space
         return trim($str);
@@ -599,8 +599,8 @@ class Services_JSON
                             case $substr_chrs_c_2 == '\\\'':
                             case $substr_chrs_c_2 == '\\\\':
                             case $substr_chrs_c_2 == '\\/':
-                                if (($delim == '"' && $substr_chrs_c_2 != '\\\'') ||
-                                   ($delim == "'" && $substr_chrs_c_2 != '\\"')) {
+                                if (($delim == '"' && $substr_chrs_c_2 != '\\\'')
+                                   || ($delim == "'" && $substr_chrs_c_2 != '\\"')) {
                                     $utf8 .= $chrs[++$c];
                                 }
                                 break;
@@ -672,8 +672,8 @@ class Services_JSON
                     }
 
                     array_push($stk, ['what'  => self::JSON_SLICE,
-                                           'where' => 0,
-                                           'delim' => false, ]);
+                        'where' => 0,
+                        'delim' => false, ]);
 
                     $chrs = substr($str, 1, -1);
                     $chrs = $this->reduce_string($chrs);
@@ -737,16 +737,16 @@ class Services_JSON
                             // found a quote, and we are not inside a string
                             array_push($stk, ['what' => self::JSON_IN_STR, 'where' => $c, 'delim' => $chrs[$c]]);
                             //print("Found start of string at {$c}\n");
-                        } elseif (($chrs[$c] == $top['delim']) &&
-                                 ($top['what'] == self::JSON_IN_STR) &&
-                                 ((strlen(substr($chrs, 0, $c)) - strlen(rtrim(substr($chrs, 0, $c), '\\'))) % 2 != 1)) {
+                        } elseif (($chrs[$c] == $top['delim'])
+                                 && ($top['what'] == self::JSON_IN_STR)
+                                 && ((strlen(substr($chrs, 0, $c)) - strlen(rtrim(substr($chrs, 0, $c), '\\'))) % 2 != 1)) {
                             // found a quote, we're in a string, and it's not escaped
                             // we know that it's not escaped becase there is _not_ an
                             // odd number of backslashes at the end of the string so far
                             array_pop($stk);
                             //print("Found end of string at {$c}: ".substr($chrs, $top['where'], (1 + 1 + $c - $top['where']))."\n");
-                        } elseif (($chrs[$c] == '[') &&
-                                 in_array($top['what'], [self::JSON_SLICE, self::JSON_IN_ARR, self::JSON_IN_OBJ])) {
+                        } elseif (($chrs[$c] == '[')
+                                 && in_array($top['what'], [self::JSON_SLICE, self::JSON_IN_ARR, self::JSON_IN_OBJ])) {
                             // found a left-bracket, and we are in an array, object, or slice
                             array_push($stk, ['what' => self::JSON_IN_ARR, 'where' => $c, 'delim' => false]);
                             //print("Found start of array at {$c}\n");
@@ -754,8 +754,8 @@ class Services_JSON
                             // found a right-bracket, and we're in an array
                             array_pop($stk);
                             //print("Found end of array at {$c}: ".substr($chrs, $top['where'], (1 + $c - $top['where']))."\n");
-                        } elseif (($chrs[$c] == '{') &&
-                                 in_array($top['what'], [self::JSON_SLICE, self::JSON_IN_ARR, self::JSON_IN_OBJ])) {
+                        } elseif (($chrs[$c] == '{')
+                                 && in_array($top['what'], [self::JSON_SLICE, self::JSON_IN_ARR, self::JSON_IN_OBJ])) {
                             // found a left-brace, and we are in an array, object, or slice
                             array_push($stk, ['what' => self::JSON_IN_OBJ, 'where' => $c, 'delim' => false]);
                             //print("Found start of object at {$c}\n");
@@ -763,8 +763,8 @@ class Services_JSON
                             // found a right-brace, and we're in an object
                             array_pop($stk);
                             //print("Found end of object at {$c}: ".substr($chrs, $top['where'], (1 + $c - $top['where']))."\n");
-                        } elseif (($substr_chrs_c_2 == '/*') &&
-                                 in_array($top['what'], [self::JSON_SLICE, self::JSON_IN_ARR, self::JSON_IN_OBJ])) {
+                        } elseif (($substr_chrs_c_2 == '/*')
+                                 && in_array($top['what'], [self::JSON_SLICE, self::JSON_IN_ARR, self::JSON_IN_OBJ])) {
                             // found a comment start, and we are in an array, object, or slice
                             array_push($stk, ['what' => self::JSON_IN_CMT, 'where' => $c, 'delim' => false]);
                             $c++;
@@ -798,8 +798,8 @@ class Services_JSON
     {
         if (class_exists('pear')) {
             return PEAR::isError($data, $code);
-        } elseif (is_object($data) && (get_class($data) == 'services_json_error' ||
-                                 is_subclass_of($data, 'services_json_error'))) {
+        } elseif (is_object($data) && (get_class($data) == 'services_json_error'
+                                 || is_subclass_of($data, 'services_json_error'))) {
             return true;
         }
 

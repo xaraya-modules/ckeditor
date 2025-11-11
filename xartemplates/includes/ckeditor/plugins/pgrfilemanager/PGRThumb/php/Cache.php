@@ -1,4 +1,5 @@
 <?php
+
 /*
 Copyright (c) 2009 Grzegorz Żydek
 
@@ -93,9 +94,9 @@ class PGRThumb_Cache
 
         $modifiedDate  = filemtime($file);
 
-        if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) &&
-            ($modifiedDate == strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE'])) &&
-            $_SERVER['SERVER_PROTOCOL']) {
+        if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])
+            && ($modifiedDate == strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']))
+            && $_SERVER['SERVER_PROTOCOL']) {
             header($_SERVER['SERVER_PROTOCOL'] . ' 304 Not Modified');
             exit(0);
         }

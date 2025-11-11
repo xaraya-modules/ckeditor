@@ -11,12 +11,9 @@
 
 namespace Xaraya\Modules\Ckeditor\AdminApi;
 
-
 use Xaraya\Modules\Ckeditor\AdminApi;
 use Xaraya\Modules\MethodClass;
 use sys;
-
-sys::import('xaraya.modules.method');
 
 /**
  * ckeditor adminapi modifypluginsconfig function

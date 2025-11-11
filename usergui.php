@@ -12,10 +12,6 @@
 namespace Xaraya\Modules\Ckeditor;
 
 use Xaraya\Modules\UserGuiClass;
-use sys;
-
-sys::import('xaraya.modules.usergui');
-sys::import('modules.ckeditor.userapi');
 
 /**
  * Handle the ckeditor user GUI

@@ -1,4 +1,5 @@
 <?php
+
 /*
 Copyright (c) 2009 Grzegorz Żydek
 
@@ -74,9 +75,9 @@ abstract class PGRThumb_Image
         }
 
         $type = $image->getType();
-        if ((self::$_imageType[$type] == 'GIF') ||
-            (self::$_imageType[$type] == 'JPEG') ||
-            (self::$_imageType[$type] == 'PNG')) {
+        if ((self::$_imageType[$type] == 'GIF')
+            || (self::$_imageType[$type] == 'JPEG')
+            || (self::$_imageType[$type] == 'PNG')) {
             return $image;
         }
 

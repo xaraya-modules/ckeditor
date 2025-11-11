@@ -11,13 +11,9 @@
 
 namespace Xaraya\Modules\Ckeditor\AdminGui;
 
-
 use Xaraya\Modules\Ckeditor\AdminGui;
 use Xaraya\Modules\Ckeditor\AdminApi;
 use Xaraya\Modules\MethodClass;
-use sys;
-
-sys::import('xaraya.modules.method');
 
 /**
  * ckeditor admin modifyconfig function

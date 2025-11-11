@@ -1,4 +1,5 @@
 <?php
+
 /*
 Copyright (c) 2009 Grzegorz Żydek
 
@@ -76,9 +77,9 @@ if (!empty($_FILES)) {
         if (preg_match('/^.*\.(jpg|gif|jpeg|png|bmp)$/', strtolower($_FILES['Filedata']['name'])) > 0) {
             $targetFile = realpath($targetFile);
             $imageInfo = PGRFileManagerUtils::getImageInfo($targetFile);
-            if (($imageInfo !== false) &&
-               (($imageInfo['height'] > PGRFileManagerConfig::$imageMaxHeight) ||
-                ($imageInfo['width'] > PGRFileManagerConfig::$imageMaxWidth))) {
+            if (($imageInfo !== false)
+               && (($imageInfo['height'] > PGRFileManagerConfig::$imageMaxHeight)
+                || ($imageInfo['width'] > PGRFileManagerConfig::$imageMaxWidth))) {
                 require_once(realpath(dirname(__FILE__) . '/../PGRThumb/php/Image.php'));
                 $image = PGRThumb_Image::factory($targetFile);
                 $image->maxSize(PGRFileManagerConfig::$imageMaxWidth, PGRFileManagerConfig::$imageMaxHeight);

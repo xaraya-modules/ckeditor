@@ -1,4 +1,5 @@
 <?php
+
 /**
  * A place for plugin config settings
  * @package modules

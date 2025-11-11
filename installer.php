@@ -19,8 +19,6 @@ use xarPrivileges;
 use xarMod;
 use sys;
 
-sys::import('xaraya.modules.installer');
-
 /**
  * Handle module installer functions
  *

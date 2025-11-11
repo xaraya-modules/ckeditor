@@ -11,12 +11,8 @@
 
 namespace Xaraya\Modules\Ckeditor\UserApi;
 
-
 use Xaraya\Modules\Ckeditor\UserApi;
 use Xaraya\Modules\MethodClass;
-use sys;
-
-sys::import('xaraya.modules.method');
 
 /**
  * ckeditor userapi getmenulinks function

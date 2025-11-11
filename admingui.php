@@ -12,10 +12,6 @@
 namespace Xaraya\Modules\Ckeditor;
 
 use Xaraya\Modules\AdminGuiClass;
-use sys;
-
-sys::import('xaraya.modules.admingui');
-sys::import('modules.ckeditor.adminapi');
 
 /**
  * Handle the ckeditor admin GUI

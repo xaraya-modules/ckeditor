@@ -1,4 +1,5 @@
 <?php
+
 /*
 Copyright (c) 2009 Grzegorz Żydek
 
@@ -94,8 +95,8 @@ class PGRThumb_UrlThumb
     public static function generateThumb()
     {
         //check pass
-        if (!isset($_GET['hash']) ||
-            ($_GET['hash'] != md5(str_replace('&hash=' . $_GET['hash'], '', $_SERVER['QUERY_STRING']) . PGRThumb_Config::$pass))) {
+        if (!isset($_GET['hash'])
+            || ($_GET['hash'] != md5(str_replace('&hash=' . $_GET['hash'], '', $_SERVER['QUERY_STRING']) . PGRThumb_Config::$pass))) {
             self::error("can't do this");
         }
 

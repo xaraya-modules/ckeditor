@@ -1,4 +1,5 @@
 <?php
+
 /*
 * Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
 * For licensing, see LICENSE.html or http://ckeditor.com/license
@@ -542,7 +543,7 @@ class CKEditor
                 // we should get the same result in the JS frontend (string).
                 // Character replacements for JSON.
                 static $jsonReplaces = [["\\", "/", "\n", "\t", "\r", "\b", "\f", '"'],
-                ['\\\\', '\\/', '\\n', '\\t', '\\r', '\\b', '\\f', '\"'], ];
+                    ['\\\\', '\\/', '\\n', '\\t', '\\r', '\\b', '\\f', '\"'], ];
 
                 $val = str_replace($jsonReplaces[0], $jsonReplaces[1], $val);
 
