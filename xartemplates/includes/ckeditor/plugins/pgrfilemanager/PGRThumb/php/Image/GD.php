@@ -90,9 +90,7 @@ class PGRThumb_Image_GD extends PGRThumb_Image
 
     public function destroy()
     {
-        if ($this->_processedImage) {
-            imagedestroy($this->_processedImage);
-        }
+        // destroy $this->_processedImage
     }
 
     public function resize($newWidth, $newHeight, $aspectRatio = true)
@@ -127,8 +125,6 @@ class PGRThumb_Image_GD extends PGRThumb_Image
         $this->_width = $newWidth;
         $this->_height = $newHeight;
 
-        imagedestroy($source);
-
         return $res;
     }
 
@@ -157,8 +153,6 @@ class PGRThumb_Image_GD extends PGRThumb_Image
 
         $this->_width = $width;
         $this->_height = $height;
-
-        imagedestroy($source);
 
         return $res;
     }
