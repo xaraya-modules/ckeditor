@@ -16,7 +16,6 @@ namespace Xaraya\Modules\Ckeditor;
 use Xaraya\Modules\InstallerClass;
 use xarMasks;
 use xarPrivileges;
-use xarMod;
 use sys;
 
 /**
@@ -106,11 +105,11 @@ class Installer extends InstallerClass
         $this->mod()->setVar('PGRFileManager_imageMaxWidth', 1280);
         $this->mod()->setVar('PGRFileManager_allowEdit', 'true');
 
-        xarMod::apiFunc('ckeditor', 'admin', 'modifypluginsconfig', [
+        $this->mod()->apiFunc('ckeditor', 'admin', 'modifypluginsconfig', [
             'name' => 'PGRFileManager.rootPath',
             'value' => $PGRFileManager_rootPath,
         ]);
-        xarMod::apiFunc('ckeditor', 'admin', 'modifypluginsconfig', [
+        $this->mod()->apiFunc('ckeditor', 'admin', 'modifypluginsconfig', [
             'name' => 'PGRFileManager.urlPath',
             'value' => $PGRFileManager_urlPath,
         ]);
@@ -131,6 +130,6 @@ class Installer extends InstallerClass
     public function delete()
     {
         $this_module = 'ckeditor';
-        return xarMod::apiFunc('modules', 'admin', 'standarddeinstall', ['module' => $this_module]);
+        return $this->mod()->apiFunc('modules', 'admin', 'standarddeinstall', ['module' => $this_module]);
     }
 }

@@ -14,7 +14,7 @@ namespace Xaraya\Modules\Ckeditor;
 use Xaraya\Modules\ModuleClass;
 
 /**
- * Get ckeditor module classes via xarMod::getModule()
+ * Get ckeditor module classes via xar::mod()->getModule()
  */
 class Module extends ModuleClass
 {
