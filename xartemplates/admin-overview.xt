@@ -4,7 +4,7 @@
      
     <div class="xar-mod-head">
         <span class="xar-mod-title">
-            <xar:if condition="xarModVars::get('ckeditor','useModuleAlias')">
+            <xar:if condition="$xar->mod('ckeditor')->getVar('useModuleAlias')">
                 <xar:var scope="module" module="ckeditor" name="aliasname"/>
             <xar:else />
                 <xar:mlstring>CKEditor Administration</xar:mlstring>
@@ -22,7 +22,7 @@
 	<p>The CKEditor module supplies the "editor" property type for use in your objects.  To use CKEditor with a Dynamic Data object, simply add one or more "editor" properties to your object.</p> 
 
         <p>Configuration settings for CKEditor are found in
-	<strong><a href="#xarTpl::getCodeUrl()#modules/ckeditor/xartemplates/includes/ckeditor/config.js">ckeditor/xartemplates/includes/ckeditor/config.js</a></strong>
+	<strong><a href="#$xar->tpl()->getCodeUrl()#modules/ckeditor/xartemplates/includes/ckeditor/config.js">ckeditor/xartemplates/includes/ckeditor/config.js</a></strong>
 	</p>
 
 	<p>
@@ -40,7 +40,7 @@
 	Options for creating and deleting directories are available in the file manager by right-clicking on directories in the directory tree.  You can also drag directories around, and can drag directories into other directories and drag files into directories.  
 	</p>
 	<p>
-	The <a href="#xarController::URL('ckeditor','admin','modifyconfig')#">modify config page</a> has a number of settings for PGRFileManager:
+	The <a href="#$xar->ctl()->URL('ckeditor','admin','modifyconfig')#">modify config page</a> has a number of settings for PGRFileManager:
 	<blockquote><strong>rootPath</strong> -- Root location for your directories and files.  Set this to a directory that exists on your server.<br />
 	<strong>urlPath</strong> -- Base URL used by the editor to link to your files.  (Must be the URL equivalent of rootPath.)<br />
 	<strong>allowedExtensions</strong> -- Comma-separated list of file extensions that are permissible to upload.<br />

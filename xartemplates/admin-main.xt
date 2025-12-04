@@ -3,7 +3,7 @@
     <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
     <div class="xar-mod-head">
         <span class="xar-mod-title">
-            <xar:if condition="xarModVars::get('ckeditor','useModuleAlias')">
+            <xar:if condition="$xar->mod('ckeditor')->getVar('useModuleAlias')">
                 <xar:var scope="module" module="ckeditor" name="aliasname"/>
             <xar:else />
                 <xar:mlstring>CKEditor Administration</xar:mlstring>
@@ -11,7 +11,7 @@
         </span>
     </div>
     <div class="xar-mod-body">
-        <img src="#xarTpl::getImage('admin.gif', 'ckeditor')#" alt="official icon" width="96" height="96" class="xar-module-icon"/>
+        <img src="#$xar->tpl()->getImage('admin.gif', 'ckeditor')#" alt="official icon" width="96" height="96" class="xar-module-icon"/>
 
         <h2>
             <xar:mlstring>Overview</xar:mlstring>

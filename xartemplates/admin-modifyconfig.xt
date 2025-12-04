@@ -4,7 +4,7 @@
     
     <div class="xar-mod-head">
         <span class="xar-mod-title">
-            <xar:if condition="xarModVars::get('ckeditor','useModuleAlias')">
+            <xar:if condition="$xar->mod('ckeditor')->getVar('useModuleAlias')">
                 <xar:var scope="module" module="ckeditor" name="aliasname"/>
             <xar:else />
                 <xar:mlstring>CKEditor Administration</xar:mlstring>
@@ -34,11 +34,11 @@
                       <label for="editorversion" class="xar-form-label"><xar:mlstring>Editor Version</xar:mlstring></label>
                         <xar:set name="options">
                             array(
-                                array('id' => 'ckeditor', 'name' => xarML('CKEditor')),
-                                array('id' => 'fckeditor', 'name' => xarML('FCKEditor')),
+                                array('id' => 'ckeditor', 'name' => $xar->ml('CKEditor')),
+                                array('id' => 'fckeditor', 'name' => $xar->ml('FCKEditor')),
                             )
                         </xar:set>
-                         <xar:set name="editorversion">xarModVars::get('ckeditor','editorversion')</xar:set>
+                         <xar:set name="editorversion">$xar->mod('ckeditor')->getVar('editorversion')</xar:set>
                         <xar:data-input type="dropdown" name="editorversion" value="$editorversion" options="$options"/>
                     </div>
 
@@ -64,7 +64,7 @@
 		    <div class="xar-form-input-wrapper">
                       <label for="#$pgrsetting#" class="xar-form-label">#$key#</label>
                      
-                         <xar:set name="setting">xarModVars::get('ckeditor',$pgrsetting)</xar:set>
+                         <xar:set name="setting">$xar->mod('ckeditor')->getVar($pgrsetting)</xar:set>
 			 <xar:if condition="$key eq 'allowEdit'">
 				<xar:set name="options">array('false' => 'false', 'true' => 'true')</xar:set>
 				<xar:data-input type="dropdown" options="$options" name="$pgrsetting" value="$setting" />
@@ -79,7 +79,7 @@
                     <div class="xar-form-input-wrapper-after">
                         <input type="hidden" name="authid" id="authid" value="#$authid#"/>
                         <input type="hidden" name="phase" id="phase" value="update"/>
-                        <input type="submit" value="#xarML('Update CKEditor Configuration')#"/>
+                        <input type="submit" value="#$xar->ml('Update CKEditor Configuration')#"/>
                     </div>
                 </fieldset>
             </form>

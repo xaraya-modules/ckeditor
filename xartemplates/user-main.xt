@@ -3,7 +3,7 @@
     <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
     <div class="xar-mod-head">
         <span class="xar-mod-title">
-            <xar:if condition="xarModVars::get('ckeditor','useModuleAlias')">
+            <xar:if condition="$xar->mod('ckeditor')->getVar('useModuleAlias')">
                 <xar:var scope="module" module="ckeditor" name="aliasname"/>
             <xar:else />
                 <xar:mlstring>CKEditor</xar:mlstring>
@@ -15,7 +15,7 @@
             <xar:mlstring>Overview</xar:mlstring>
         </h2>
 
-	<p><a href="#xarController::URL('ckeditor','admin','overview')#">Module overview</a></p>
+	<p><a href="#$xar->ctl()->URL('ckeditor','admin','overview')#">Module overview</a></p>
      
         <div style="clear:both">&#160;</div>
     </div>
